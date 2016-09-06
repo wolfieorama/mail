@@ -1,0 +1,14 @@
+<h1>index</h1>
+<ul>
+  {{#each model as |email|}}
+    <li>
+      {{#link-to 'folder.mail' 'inbox' email }}
+        <h2>{{email.from}}</h2>
+        <h2>{{email.to}}</h2>
+        <h2>{{email.subject}}</h2>
+        <h2>{{email.body}}</h2>
+        <h2>{{email.sentAt}}</h2>
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>
