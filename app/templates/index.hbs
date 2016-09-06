@@ -1,13 +1,18 @@
 <h1>Mail</h1>
+  <nav>
+    <ul>
+      <li>{{link-to 'Inbox' 'index'}}</li>
+    </ul>
+  </nav>
 
-<ul>
-  {{#each model as |email|}}
-    <li>
-      <h2>{{email.from}}</h2>
-      <h2>{{email.to}}</h2>
-      <h2>{{email.subject}}</h2>
-      <h2>{{email.body}}</h2>
-      <h2>{{email.sentAt}}</h2>
-    </li>
-  {{/each}}
-</ul>
+  <ul>
+    {{#each model as |email|}}
+      <li>
+        <h2>{{email.from}}</h2>
+        <h2>{{email.to}}</h2>
+        <h2>{{email.subject}}</h2>
+        <h2>{{email.body}}</h2>
+        <h2>{{email.sentAt}}</h2>
+      </li>
+    {{/each}}
+  </ul>
