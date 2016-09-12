@@ -23,3 +23,17 @@ test('show just date when relative is false', function(assert){
   const actual = relativeDateFormatter([date], { relative: false });
   assert.equal(actual, 'Jul 27');
 });
+
+test('show 1 day ago', function(assert){
+  const laterDate = moment(date).add(1, 'day').toDate();
+  timekeeper.freeze(laterDate); //timekeeper lib to freeze time
+  const actual = relativeDateFormatter([date], { relative: true});
+  assert.equal(actual, 'Jul 27 (1 day ago)');
+});
+
+test('returns relative defaulting to true', function(assert){
+  const laterDate = moment(date).add(1, 'day').toDate();
+  timekeeper.freeze(laterDate); //timekeeper lib to freeze time
+  const actual = relativeDateFormatter([date]);
+  assert.equal(actual, 'Jul 27 (1 day ago)');
+});
