@@ -8,7 +8,8 @@ export default Ember.Route.extend({
       to: 'dev@me.com',
       subject: 'Opportunity',
       body: 'Dear {{firstName}}, ...',
-      sentAt: new Date()//calling new on date
+      sentAt: new Date(),//calling new on date
+      readDate: null
     },
     {
       id: 2,
@@ -16,7 +17,8 @@ export default Ember.Route.extend({
       to: 'riko@me.com',
       subject: 'Foo',
       body: 'Dear {{firstName}}, ...',
-      sentAt: new Date()//calling new on date
+      sentAt: new Date(),//calling new on date
+      readDate: null
     }];
   }
 });
