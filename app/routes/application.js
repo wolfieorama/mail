@@ -21,12 +21,20 @@ const fixtures = [{
   trashedDate: null
 }];
 
-const { get } = Ember;
+const { get, set } = Ember;
+
 
 export default Ember.Route.extend({
   model(){
-    return fixtures.filter(function(item) {
-      return !get(item, 'trashedDate');
+    return fixtures.filter(function(email) {
+      return !get(email, 'trashedDate');
     });
+  },
+  actions: {
+    moveToTrash(email){
+    set(email, 'trashedDate', new Date());
+    this.refresh();
+    this.transitionTo('application');
+    }
   }
 });
