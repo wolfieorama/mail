@@ -5,6 +5,9 @@ export default Ember.Controller.extend({
     showEmail(email){
       this.transitionToRoute('folder.mail', email);
       // this is the controller context ref transitionToRoute
+    },
+    trashBulk(){
+      console.log("Fired");
     }
   }
 });
