@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const { get, set} = Ember;
+
 export default Ember.Controller.extend({
   actions: {
     showEmail(email){
@@ -7,7 +9,15 @@ export default Ember.Controller.extend({
       // this is the controller context ref transitionToRoute
     },
     trashBulk(){
-      console.log("Fired");
+      const results = get(this, 'model').filter((item) => {
+        return get(item, 'checked');
+      });
+
+      results.forEach((result) => {
+        set(result, 'trashedDate', new Date());
+        set(result, 'checked', false);
+      });
+      this.transitionToRoute('application');
     }
   }
 });
