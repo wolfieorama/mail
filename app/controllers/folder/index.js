@@ -4,6 +4,8 @@ const { get, set} = Ember;
 
 export default Ember.Controller.extend({
   mailLookup: Ember.inject.service(),
+  currentFolderName: Ember.computed.alias('mailLookup.currentFolderName'),
+
   actions: {
     showEmail(email){
       this.transitionToRoute('folder.mail', email);
@@ -19,6 +21,9 @@ export default Ember.Controller.extend({
         set(result, 'checked', false);
       });
       this.transitionToRoute('application');
+    },
+    starEmail(email){
+      set(email, 'starred', !get(email, 'starred'));
     }
   }
 });

@@ -1,4 +1,4 @@
-{{#if (and (gt model.length 0) (eq mailLookup.currentFolderName 'inbox'))}}
+{{#if (and (gt model.length 0) (eq currentFolderName 'inbox'))}}
   <div class="mail-option">
     {{#rl-dropdown-container class="btn-group"}}
       {{#rl-dropdown-toggle class="btn btn-default"}}
@@ -21,6 +21,13 @@
       <tr class="{{if email.readDate 'read' 'unread' }}" >
       <td class="inbox-small-cells">
         {{input type="checkbox" checked=email.checked }}
+      </td>
+      <td class="inbox-small-cells" {{action "starEmail" email}}>
+        {{#if email.starred}}
+          {{fa-icon "star" class="inbox-started"}}
+        {{else}}
+          {{fa-icon "star"}}
+        {{/if}}
       </td>
       <td class="view-message dont-show" {{action "showEmail" email}}>{{email.from}}</td>
       <td class="view-message" {{action "showEmail" email}}>{{email.subject}}</td>
