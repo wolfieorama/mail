@@ -1,4 +1,4 @@
-{{#if (gt model.length 0)}}
+{{#if (and (gt model.length 0) (eq mailLookup.currentFolderName 'inbox'))}}
   <div class="mail-option">
     {{#rl-dropdown-container class="btn-group"}}
       {{#rl-dropdown-toggle class="btn btn-default"}}

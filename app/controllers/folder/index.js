@@ -3,6 +3,7 @@ import Ember from 'ember';
 const { get, set} = Ember;
 
 export default Ember.Controller.extend({
+  mailLookup: Ember.inject.service(),
   actions: {
     showEmail(email){
       this.transitionToRoute('folder.mail', email);

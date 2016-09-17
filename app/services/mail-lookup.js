@@ -40,7 +40,7 @@ export default Ember.Service.extend({
         set(this, `${fn}Count`, result.length);
         set(this, fn, result);
       }
-
+      this.set('currentFolderName', folderName);
       resolve(get(this, folderName));
     });
   }
