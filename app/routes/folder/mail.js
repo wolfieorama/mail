@@ -11,5 +11,11 @@ export default Ember.Route.extend({
   },
   afterModel(model){
     set(model, 'readDate', new Date());
+  },
+  actions: {
+    moveToTrash(email){
+    set(email, 'trashedDate', new Date());
+    this.transitionTo('application');
+    }
   }
 });
