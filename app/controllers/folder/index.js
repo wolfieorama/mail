@@ -12,15 +12,8 @@ export default Ember.Controller.extend({
       // this is the controller context ref transitionToRoute
     },
     trashBulk(){
-      const results = get(this, 'model').filter((item) => {
-        return get(item, 'checked');
-      });
-
-      results.forEach((result) => {
-        set(result, 'trashedDate', new Date());
-        set(result, 'checked', false);
-      });
-      this.transitionToRoute('application');
+      const results = get(this, 'model').filter(i => get(i, 'checked'));
+      get(this, 'mailLookup').removeItems(results);
     },
     starEmail(email){
       set(email, 'starred', !get(email, 'starred'));
